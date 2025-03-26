@@ -10,13 +10,13 @@
  <a href='https://huggingface.co/spaces/tencent/DepthCrafter'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-blue'></a> &nbsp;
 
 
-_**[Wenbo Hu<sup>1* &dagger;</sup>](https://wbhu.github.io), 
-[Xiangjun Gao<sup>2*</sup>](https://scholar.google.com/citations?user=qgdesEcAAAAJ&hl=en), 
-[Xiaoyu Li<sup>1* &dagger;</sup>](https://xiaoyu258.github.io), 
-[Sijie Zhao<sup>1</sup>](https://scholar.google.com/citations?user=tZ3dS3MAAAAJ&hl=en), 
+_**[Wenbo Hu<sup>1* &dagger;</sup>](https://wbhu.github.io),
+[Xiangjun Gao<sup>2*</sup>](https://scholar.google.com/citations?user=qgdesEcAAAAJ&hl=en),
+[Xiaoyu Li<sup>1* &dagger;</sup>](https://xiaoyu258.github.io),
+[Sijie Zhao<sup>1</sup>](https://scholar.google.com/citations?user=tZ3dS3MAAAAJ&hl=en),
 [Xiaodong Cun<sup>1</sup>](https://vinthony.github.io/academic), <br>
-[Yong Zhang<sup>1</sup>](https://yzhang2016.github.io), 
-[Long Quan<sup>2</sup>](https://home.cse.ust.hk/~quan), 
+[Yong Zhang<sup>1</sup>](https://yzhang2016.github.io),
+[Long Quan<sup>2</sup>](https://home.cse.ust.hk/~quan),
 [Ying Shan<sup>3, 1</sup>](https://scholar.google.com/citations?user=4oXBp9UAAAAJ&hl=en)**_
 <br><br>
 <sup>1</sup>Tencent AI Lab
@@ -40,7 +40,7 @@ For business licensing and other related inquiries, don't hesitate to contact `w
 ## 🔆 Introduction
 🤗 If you find DepthCrafter useful, **please help ⭐ this repo**, which is important to Open-Source projects. Thanks!
 
-🔥 DepthCrafter can generate temporally consistent long-depth sequences with fine-grained details for open-world videos, 
+🔥 DepthCrafter can generate temporally consistent long-depth sequences with fine-grained details for open-world videos,
 without requiring additional information such as camera poses or optical flow.
 
 - `[24-12-10]` 🌟🌟🌟 EXR output format is supported now, with --save_exr option.
@@ -48,8 +48,8 @@ without requiring additional information such as camera poses or optical flow.
 - `[24-10-19]` 🤗🤗🤗 DepthCrafter now has been integrated into [ComfyUI](https://github.com/akatz-ai/ComfyUI-DepthCrafter-Nodes)!
 - `[24-10-08]` 🤗🤗🤗 DepthCrafter now has been integrated into [Nuke](https://github.com/Theo-SAMINADIN-td/NukeDepthCrafter), have a try!
 - `[24-09-28]` Add full dataset inference and evaluation scripts for better comparison use. :-)
-- `[24-09-25]` 🤗🤗🤗 Add huggingface online demo [DepthCrafter](https://huggingface.co/spaces/tencent/DepthCrafter). 
-- `[24-09-19]` Add scripts for preparing benchmark datasets. 
+- `[24-09-25]` 🤗🤗🤗 Add huggingface online demo [DepthCrafter](https://huggingface.co/spaces/tencent/DepthCrafter).
+- `[24-09-19]` Add scripts for preparing benchmark datasets.
 - `[24-09-18]` Add point cloud sequence visualization.
 - `[24-09-14]` 🔥🔥🔥 **DepthCrafter** is released now, have fun!
 
@@ -132,10 +132,10 @@ without requiring additional information such as camera poses or optical flow.
           </tbody>
         </table>
 
-    
+
 
 ## 🎥 Visualization
-We provide demos of unprojected point cloud sequences, with reference RGB and estimated depth videos. 
+We provide demos of unprojected point cloud sequences, with reference RGB and estimated depth videos.
 For more details, please refer to our [project page](https://depthcrafter.github.io).
 
 
@@ -147,15 +147,15 @@ https://github.com/user-attachments/assets/62141cc8-04d0-458f-9558-fe50bc04cc21
 ## 🚀 Quick Start
 
 ### 🤖 Gradio Demo
-- Online demo: [DepthCrafter](https://huggingface.co/spaces/tencent/DepthCrafter) 
+- Online demo: [DepthCrafter](https://huggingface.co/spaces/tencent/DepthCrafter)
 - Local demo:
     ```bash
     gradio app.py
-    ``` 
+    ```
 
 ### 🌟 Community Support
-- [NukeDepthCrafter](https://github.com/Theo-SAMINADIN-td/NukeDepthCrafter): 
-    a plugin allows you to generate temporally consistent Depth sequences inside Nuke, 
+- [NukeDepthCrafter](https://github.com/Theo-SAMINADIN-td/NukeDepthCrafter):
+    a plugin allows you to generate temporally consistent Depth sequences inside Nuke,
     which is widely used in the VFX industry.
 - [ComfyUI-Nodes](https://github.com/akatz-ai/ComfyUI-DepthCrafter-Nodes): creating consistent depth maps for your videos using DepthCrafter in ComfyUI.
 
@@ -170,6 +170,12 @@ git clone https://github.com/Tencent/DepthCrafter.git
 pip install -r requirements.txt
 ```
 
+### Docker
+
+```bash
+cd docker
+docker compose up -d --build && docker exec -it depthcrafter bash
+```
 
 
 ### 🤗 Model Zoo
@@ -191,7 +197,7 @@ pip install -r requirements.txt
     ```
 
 ## 🚀 Dataset Evaluation
-Please check the `benchmark` folder. 
+Please check the `benchmark` folder.
 - To create the dataset we use in the paper, you need to run `dataset_extract/dataset_extract_${dataset_name}.py`.
 - Then you will get the `csv` files that save the relative root of extracted RGB video and depth npz files. We also provide these csv files.
 - Inference for all datasets scripts:

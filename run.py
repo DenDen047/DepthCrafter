@@ -1,14 +1,14 @@
 import gc
 import os
+
 import numpy as np
 import torch
-
 from diffusers.training_utils import set_seed
 from fire import Fire
 
 from depthcrafter.depth_crafter_ppl import DepthCrafterPipeline
 from depthcrafter.unet import DiffusersUNetSpatioTemporalConditionModelDepthCrafter
-from depthcrafter.utils import vis_sequence_depth, save_video, read_video_frames
+from depthcrafter.utils import read_video_frames, save_video, vis_sequence_depth
 
 
 class DepthCrafterDemo:
@@ -22,6 +22,7 @@ class DepthCrafterDemo:
             unet_path,
             low_cpu_mem_usage=True,
             torch_dtype=torch.float16,
+            cache_dir="/data/cache",
         )
         # load weights of other components from the provided checkpoint
         self.pipe = DepthCrafterPipeline.from_pretrained(
@@ -29,6 +30,7 @@ class DepthCrafterDemo:
             unet=unet,
             torch_dtype=torch.float16,
             variant="fp16",
+            cache_dir="/data/cache",
         )
 
         # for saving memory, we can offload the model to CPU, or even run the model sequentially to save more memory
@@ -106,8 +108,8 @@ class DepthCrafterDemo:
         if save_npz:
             np.savez_compressed(save_path + ".npz", depth=res)
         if save_exr:
-            import OpenEXR
             import Imath
+            import OpenEXR
 
             os.makedirs(save_path, exist_ok=True)
             print(f"==> saving EXR results to {save_path}")
@@ -168,7 +170,7 @@ def main(
     overlap: int = 25,
     max_res: int = 1024,
     dataset: str = "open",
-    save_npz: bool = False,
+    save_npz: bool = True,
     save_exr: bool = False,
     track_time: bool = False,
 ):

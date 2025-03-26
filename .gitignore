@@ -169,3 +169,5 @@ scripts/
 eval/
 *.DS_Store
 benchmark/datasets
+demo_output/
+cache/
